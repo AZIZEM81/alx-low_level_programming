@@ -3,13 +3,14 @@
 
 #include <stdlib.h>
 
-int my_putchar(char c);
-void my_puts(const char *str);
-void malloc_checked(unsigned int size);
-char *my_strnconcat(const char *s1, const char *s2, unsigned int n);
-int my_array_range(int min, int max);
-void my_realloc(void **ptr, unsigned int new_size);
-int my_atoi(const char *s);
-void my_print_int(unsigned long int n);
+int putchar(char c);
+void puts(char *str);
+void malloc_checked(unsigned int b);
+char *string_nconcat(char *s1, char *s2, unsigned int n);
+void calloc(unsigned int nmemb, unsigned int size);
+int array_range(int min, int max);
+void realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+int atoi(const char *s);
+void print_int(unsigned long int n);
 
 #endif
