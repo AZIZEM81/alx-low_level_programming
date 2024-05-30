@@ -6,7 +6,7 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 all: m.h $(NAME)
 
 $(NAME): $(SRC)
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC) -o $@
 
 clean:
 	$(RM) *~ $(NAME)
@@ -16,4 +16,4 @@ oclean:
 
 fclean: clean oclean
 
-re: oclean all
+re: fclean all
