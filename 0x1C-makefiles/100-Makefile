@@ -7,8 +7,10 @@ all: school
 school: $(SRC) m.h
 	$(CC) $(CFLAGS) $(SRC) -o $@
 
+.PHONY: all clean oclean fclean re
+
 clean:
-	$(RM) *~ $@
+	$(RM) *~ school
 
 oclean:
 	$(RM) $(SRC:.c=.o)
