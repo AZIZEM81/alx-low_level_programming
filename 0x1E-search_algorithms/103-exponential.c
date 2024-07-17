@@ -1,7 +1,7 @@
 #include "search_algos.h"
 
 /**
- * exponential_search - searches for a value in a sorted ah
+ * exponential_search - searches for a value using Exponential search
  * @array: pointer to the first element of the array
  * @size: number of elements in the array
  * @value: value to search for
@@ -21,47 +21,41 @@ int exponential_search(int *array, size_t size, int value)
 	}
 
 	low = bound / 2;
-	high = min(bound, size - 1);
+	high = (bound < size - 1) ? bound : size - 1;
 
 	printf("Value found between indexes [%lu] and [%lu]\n", low, high);
 
-	return (binary_search(array + low, high - low + 1, value) + (int)low);
+	return (binary_search(array, low, high, value));
 }
 
 /**
- * binary_search - binary search implementation
+ * binary_search - searches for a value using Binary search
  * @array: pointer to the first element of the array
- * @size: number of elements in the array
+ * @low: starting index of the search range
+ * @high: ending index of the search range
  * @value: value to search for
  * Return: index where value is located, or -1 if not found
  */
-int binary_search(int *array, size_t size, int value)
+int binary_search(int *array, size_t low, size_t high, int value)
 {
-	size_t left = 0, right = size - 1, mid;
+	size_t mid;
 
-	while (left <= right)
+	while (low <= high)
 	{
-		print_array(array, left, right);
-		mid = (left + right) / 2;
+		printf("Searching in array: ");
+		for (size_t i = low; i < high; i++)
+			printf("%d, ", array[i]);
+		printf("%d\n", array[high]);
+
+		mid = (low + high) / 2;
 
 		if (array[mid] == value)
 			return (mid);
 		if (array[mid] < value)
-			left = mid + 1;
+			low = mid + 1;
 		else
-			right = mid - 1;
+			high = mid - 1;
 	}
 
 	return (-1);
-}
-
-/**
- * min - returns the minimum of two size_t values
- * @a: first value
- * @b: second value
- * Return: minimum of a and b
- */
-size_t min(size_t a, size_t b)
-{
-	return (a < b ? a : b);
 }
