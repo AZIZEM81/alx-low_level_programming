@@ -1,7 +1,6 @@
 #ifndef SEARCH_ALGOS_H
 #define SEARCH_ALGOS_H
 
-#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -17,9 +16,9 @@
  */
 typedef struct listint_s
 {
-    int n;
-    size_t index;
-    struct listint_s *next;
+	int n;
+	size_t index;
+	struct listint_s *next;
 } listint_t;
 
 /**
@@ -34,10 +33,10 @@ typedef struct listint_s
  */
 typedef struct skiplist_s
 {
-    int n;
-    size_t index;
-    struct skiplist_s *next;
-    struct skiplist_s *express;
+	int n;
+	size_t index;
+	struct skiplist_s *next;
+	struct skiplist_s *express;
 } skiplist_t;
 
 /* Function prototypes */
@@ -52,5 +51,6 @@ skiplist_t *linear_skip(skiplist_t *list, int value);
 
 /* Helper function prototypes */
 void print_array(const int *array, size_t start, size_t end);
+size_t min(size_t a, size_t b);
 
 #endif /* SEARCH_ALGOS_H */
